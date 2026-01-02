@@ -3,7 +3,7 @@
 > *Capture the grid. Survive the glitch.*
 
 ![Status](https://img.shields.io/badge/Status-Development-violet?style=for-the-badge)
-![License](https://img.shields.io/badge/License-Private-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 ## 🔮 The Simulation
 
@@ -59,5 +59,5 @@ Access the terminal at `http://localhost:3000`.
 
 ## 📜 Directive (License)
 
-**Private Portfolio Project**  
-© 2024 Alejandro. All rights reserved. Access limited to authorized personnel only.
+**MIT License**  
+© 2026 Alejandro. Free for all entities in the simulation.
