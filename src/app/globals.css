@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* ===================================
+   NEON DIVIDE - CRT/VHS EFFECTS
+   =================================== */
+
+/* Custom CSS Variables for Neon Theme */
+:root {
+  --neon-magenta: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-green: #00ff00;
+  --neon-yellow: #ffd700;
+  --bg-dark: #050505;
+  --bg-surface: #0a0a0a;
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-dark);
+  color: white;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+}
+
+/* ===================================
+   SCANLINES EFFECT
+   =================================== */
+.crt-scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* ===================================
+   VIGNETTE EFFECT
+   =================================== */
+.crt-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.4) 80%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+/* ===================================
+   RGB SHIFT / CHROMATIC ABERRATION
+   =================================== */
+.crt-rgb-shift {
+  animation: rgb-shift 8s ease-in-out infinite;
+}
+
+@keyframes rgb-shift {
+  0%, 100% {
+    text-shadow: 
+      -1px 0 var(--neon-cyan),
+      1px 0 var(--neon-magenta);
+  }
+  50% {
+    text-shadow: 
+      -2px 0 var(--neon-cyan),
+      2px 0 var(--neon-magenta);
+  }
+}
+
+/* ===================================
+   FLICKER EFFECT
+   =================================== */
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.98; }
+  75% { opacity: 0.96; }
+}
+
+/* ===================================
+   NEON GLOW UTILITIES
+   =================================== */
+.neon-text {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+}
+
+.neon-border {
+  box-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    inset 0 0 5px currentColor;
+}
+
+/* ===================================
+   NOISE OVERLAY (Static)
+   =================================== */
+.crt-noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ===================================
+   GAME CANVAS STYLES
+   =================================== */
+.game-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ===================================
+   RETRO BUTTON STYLES
+   =================================== */
+.btn-retro {
+  border: 2px solid var(--neon-cyan);
+  background: transparent;
+  color: var(--neon-cyan);
+  padding: 0.75rem 1.5rem;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 0 5px var(--neon-cyan),
+    inset 0 0 5px rgba(0, 255, 255, 0.1);
+}
+
+.btn-retro:hover {
+  background: var(--neon-cyan);
+  color: var(--bg-dark);
+  box-shadow: 
+    0 0 20px var(--neon-cyan),
+    0 0 40px var(--neon-cyan);
+}
+
+/* ===================================
+   HUD STYLES
+   =================================== */
+.hud-container {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hud-value {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green);
+}
