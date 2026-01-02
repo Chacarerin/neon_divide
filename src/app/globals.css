@@ -30,13 +30,11 @@ body {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 2px
-  );
+  background: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px);
 }
 
 /* ===================================
@@ -47,13 +45,11 @@ body {
   position: fixed;
   inset: 0;
   z-index: 99;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 0%,
-    transparent 50%,
-    rgba(0, 0, 0, 0.4) 80%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
+  background: radial-gradient(ellipse at center,
+      transparent 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.4) 80%,
+      rgba(0, 0, 0, 0.8) 100%);
 }
 
 /* ===================================
@@ -64,13 +60,16 @@ body {
 }
 
 @keyframes rgb-shift {
-  0%, 100% {
-    text-shadow: 
+
+  0%,
+  100% {
+    text-shadow:
       -1px 0 var(--neon-cyan),
       1px 0 var(--neon-magenta);
   }
+
   50% {
-    text-shadow: 
+    text-shadow:
       -2px 0 var(--neon-cyan),
       2px 0 var(--neon-magenta);
   }
@@ -84,16 +83,26 @@ body {
 }
 
 @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.98; }
-  75% { opacity: 0.96; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.98;
+  }
+
+  75% {
+    opacity: 0.96;
+  }
 }
 
 /* ===================================
    NEON GLOW UTILITIES
    =================================== */
 .neon-text {
-  text-shadow: 
+  text-shadow:
     0 0 5px currentColor,
     0 0 10px currentColor,
     0 0 20px currentColor,
@@ -101,7 +110,7 @@ body {
 }
 
 .neon-border {
-  box-shadow: 
+  box-shadow:
     0 0 5px currentColor,
     0 0 10px currentColor,
     inset 0 0 5px currentColor;
@@ -139,7 +148,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: all 0.2s ease;
-  box-shadow: 
+  box-shadow:
     0 0 5px var(--neon-cyan),
     inset 0 0 5px rgba(0, 255, 255, 0.1);
 }
@@ -147,7 +156,7 @@ body {
 .btn-retro:hover {
   background: var(--neon-cyan);
   color: var(--bg-dark);
-  box-shadow: 
+  box-shadow:
     0 0 20px var(--neon-cyan),
     0 0 40px var(--neon-cyan);
 }
@@ -164,4 +173,33 @@ body {
 .hud-value {
   color: var(--neon-green);
   text-shadow: 0 0 10px var(--neon-green);
+}
+
+/* ===================================
+   TOUCH CONTROLS (Mobile)
+   =================================== */
+.touch-control {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.1);
+  color: var(--neon-cyan);
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: manipulation;
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.3),
+    inset 0 0 5px rgba(0, 255, 255, 0.1);
+}
+
+.touch-control:active {
+  background: rgba(0, 255, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    inset 0 0 10px rgba(0, 255, 255, 0.3);
 }
